@@ -9,7 +9,7 @@ import { cwd } from 'node:process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = join(__filename, '..');
 
-// Servir archivos desde la carpeta donde está este archivo
+// Servir archivos desde la carpeta donde está este archivo.
 const baseDir = __dirname;
 
 // Mapas de tipos MIME básicos

@@ -9,7 +9,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     word-spacing: 5px;
-    white-space: nowrap;
+    white-space: nowrap; 
 }
 .texto_secundario{
     color: #F54927;

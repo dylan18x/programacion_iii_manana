@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <script src="04_eventos_mouse_mp.js" defer></script>
+</head>
+<body>
+    <div id="zonaMascotas"></div>
+
+    <button id="agregarMascota">Agregar Mascota</button>
+    <button id="removerMascota">Remover Mascota</button>
+
+    <button onclick="alert('Bienvenido al Centro de Adopción')">
+        Saludo Rápido
+    </button>
+
+    <button onclick="saludar('Gracias por adoptar')">
+        Saludo desde Función
+    </button>
+
+    <p id="info">Doble click para más información</p>
+
+    <form id="formAdopcion" style="margin-top:20px">
+        <input type="text" id="nombreMascota"
+        placeholder="Ingrese nombre de la mascota"/>
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+</html>

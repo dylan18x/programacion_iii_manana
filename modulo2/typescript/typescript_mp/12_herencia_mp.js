@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var _11_mascotas_1 = require("./11_herencia_mp");
+var miMascota = new _11_mascotas_1.Mascota('Firulais', 'Perro');
+console.log(miMascota.nombre);
+console.log(miMascota.tipo);
+miMascota.moverse();
+var miMiniMascota = new _11_mascotas_1.MascotaPequeña('Michi', 'Gato');
+console.log(miMiniMascota.nombre);
+console.log(miMiniMascota.tipo);
+miMiniMascota.moverse();

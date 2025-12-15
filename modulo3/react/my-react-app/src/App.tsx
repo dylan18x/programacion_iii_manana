@@ -17,7 +17,6 @@ import ParentIncrementButton from './props/ParentIncrementButton';
 import ParentInputNotifier from './props/ParentInputNotifier';
 import ParentLoginForm from './props/ParentLoginForm';
 import ParentUserList from './props/ParentUserList';
-import UserCard from './props/UserCard';*/
 import AccessWithLimit from './useState/AccessWithLimit';
 import CheckboxSummary from './useState/CheckboxSummary';
 import DocumentTitleChanger from './useState/DocumentTitleChanger';
@@ -26,6 +25,22 @@ import LanguageSwitcher from './useState/LanguageSwitcher';
 import LoginAccessWithLimit from './useState/LoginAccessWithLimit';
 import MultiSwitch from './useState/MultiSwitch';
 import PostLikes from './useState/PostLikes';
+import ClickHistory from "./useState/ClickHistory";
+import DynamicColor from "./useState/DynamicColor";
+import Clock from "./useEffect/Clock";
+import FetchUser from "./useEffect/FetchUser";
+import FetchUsers from "./useEffect/FetchUsers";
+import LogEffect from "./useEffect/LogEffect";
+import PersistCounter from "./useEffect/PersistCounter";
+import ScrollLogger from "./useEffect/ScrollLoger";
+import UserCard from './props/UserCard';*/
+
+import { useState } from "react";
+import { LanguageContext } from "./useContext/LanguageContext";
+import LanguageToggle from "./useContext/LanguageToggle";
+import LoginStatus from "./useContext/LoginStatus";
+import { LoginContext } from "./useContext/LoginContext";
+
 
     /*<>
       <HelloWorld/>
@@ -52,11 +67,6 @@ import PostLikes from './useState/PostLikes';
       <ParentUserList/>
       <ParentLoginForm/>
       <ParentAreaTriangulo/>
-    </>*/
-    
-function App() {
-  return (
-    <>
       <HoverFont/>
       <AccessWithLimit/>
       <LoginAccessWithLimit/>
@@ -65,6 +75,30 @@ function App() {
       <CheckboxSummary/>
       <LanguageSwitcher/>
       <MultiSwitch/>
+      <DynamicColor/>
+      <ClickHistory/>
+      <LogEffect/>
+      <FetchUser/>
+      <FetchUsers/>
+      <Clock/>
+      <ScrollLogger/>
+      <PersistCounter/>
+    </>*/
+    
+function App() {
+  const [lang, setLang] = useState('es');
+  const toggleLanguage = () => setLang(prev => (prev === 'es' ? 'en' : 'es'));
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const toggleLogin = () => setIsLoggedIn(prev => !prev);
+  return (
+    <>
+      <LanguageContext.Provider value={{ lang, toggleLanguage }}>
+        <LanguageToggle />
+      </LanguageContext.Provider>
+      
+      <LoginContext.Provider value={{ isLoggedIn, toggleLogin }}>
+        <LoginStatus />
+      </LoginContext.Provider>
     </>
   );
 }

@@ -33,13 +33,29 @@ import FetchUsers from "./useEffect/FetchUsers";
 import LogEffect from "./useEffect/LogEffect";
 import PersistCounter from "./useEffect/PersistCounter";
 import ScrollLogger from "./useEffect/ScrollLoger";
-import UserCard from './props/UserCard';*/
-
 import { useState } from "react";
 import { LanguageContext } from "./useContext/LanguageContext";
 import LanguageToggle from "./useContext/LanguageToggle";
 import LoginStatus from "./useContext/LoginStatus";
 import { LoginContext } from "./useContext/LoginContext";
+import CirculoColorido from "./useRef/CircuitoColorido";
+import FocoAutomatico from "./useRef/FocoAutomatico";
+import MoverCaja from "./useRef/MoverCaja";
+import ReproductorSonido from "./useRef/ReproductorSonido";
+import ScrollDemo from "./useRef/ScrollDemo";
+import ContadorLetras from "./useMemo/ContadorLetras";
+import ExpensiveCalc from "./useMemo/ExpensiveCalc";
+import FiltroLista from "./useMemo/FiltroLIsta";
+import PrimosMemo from "./useMemo/PrimosMemo";
+import TablaOrdenada from "./useMemo/TablaOrdenada";
+import Contador from "./useCallback/contador";
+import Lista from "./useCallback/LIsta";
+import UserCard from './props/UserCard';*/
+
+import AreaCirculo from "./useReducer/AreaCirculo";
+import ContadorReducer from "./useReducer/ContadorReducer";
+import FormularioReducer from "./useReducer/FormularioReducer";
+
 
 
     /*<>
@@ -55,9 +71,13 @@ import { LoginContext } from "./useContext/LoginContext";
       <SimpleForm/>
       <SumarForm/>
       <PromedioNotas/>
-  </>*/
-  /*const userData = { name: "Dylan", age: 19, last:"Fernández",direction: "La Comuna",phone:"0969081645"};
-    <>
+      </>*/
+      /*const userData = { name: "Dylan", age: 19, last:"Fernández",direction: "La Comuna",phone:"0969081645"};
+      const [lang, setLang] = useState('es');
+      const toggleLanguage = () => setLang(prev => (prev === 'es' ? 'en' : 'es'));
+      const [isLoggedIn, setIsLoggedIn] = useState(false);
+      const toggleLogin = () => setIsLoggedIn(prev => !prev);
+      <>
       <Greeting name="Francisco" />
       <Greeting name="Ana" />
       <UserCard user={userData} />
@@ -83,15 +103,6 @@ import { LoginContext } from "./useContext/LoginContext";
       <Clock/>
       <ScrollLogger/>
       <PersistCounter/>
-    </>*/
-    
-function App() {
-  const [lang, setLang] = useState('es');
-  const toggleLanguage = () => setLang(prev => (prev === 'es' ? 'en' : 'es'));
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const toggleLogin = () => setIsLoggedIn(prev => !prev);
-  return (
-    <>
       <LanguageContext.Provider value={{ lang, toggleLanguage }}>
         <LanguageToggle />
       </LanguageContext.Provider>
@@ -99,8 +110,34 @@ function App() {
       <LoginContext.Provider value={{ isLoggedIn, toggleLogin }}>
         <LoginStatus />
       </LoginContext.Provider>
+      <FocoAutomatico/>
+      <CirculoColorido/>
+      <ScrollDemo/>
+      <ReproductorSonido/>
+      <MoverCaja/>
+      <ExpensiveCalc/>
+      <FiltroLista/>
+      <TablaOrdenada/>
+      <PrimosMemo/>
+      <ContadorLetras/>
+      const elementos = [1,2,3,4,5,6,7,8,9,10];
+    
+      return (
+        <>
+          <h2>Tabla de Multiplicar</h2>
+          <ListaMultiplicar items={elementos} />
+        </>
+      );
+    </>*/
+    
+function App() {
+  return (
+    <>
+      <ContadorReducer/>
+      <FormularioReducer/>
+      <AreaCirculo/>
     </>
-  );
+  )
 }
 
 

@@ -1,9 +1,9 @@
-import { GaleriaDiferida } from "./useTransition/GaleriaDiferida"
+import { ControladorPanel } from "./useImperativeHandle/ControladorPanel"
 
 function App() {
   return (
     <>
-      <GaleriaDiferida/>
+      <ControladorPanel/>
     </>
   )
 }

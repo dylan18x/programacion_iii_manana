@@ -1,9 +1,9 @@
-import { ControladorPanel } from "./useImperativeHandle/ControladorPanel"
+import BeeTimer from "./BSS_REF/BeeTimer"
 
 function App() {
   return (
     <>
-      <ControladorPanel/>
+      <BeeTimer/>
     </>
   )
 }

@@ -31,28 +31,37 @@ export class CategoriesService {
     }
   }
 
-  async findAll(options: CategoryPaginationOptions): Promise<Pagination<Category>> {
-    const { search, searchField, sortBy, sortOrder } = options;
-    const queryBuilder = this.categoryRepo.createQueryBuilder('category');
-    const allowedSearchFields = ['name'];
-    const allowedSortFields = ['id', 'name'];
-    if (search && searchField && allowedSearchFields.includes(searchField)) {
-      queryBuilder.andWhere(
-        `LOWER(category.${searchField}) LIKE :search`,
-        { search: `%${search.toLowerCase()}%` },
-      );
+  async findAll(options: any): Promise<Pagination<Category> | null> {
+    try {
+      const { page, limit, search, searchField, sort, order } = options;
+
+      const qb = this.categoryRepo.createQueryBuilder('category');
+
+      if (search) {
+        if (searchField === 'name' || searchField === 'description') {
+          qb.where(
+            `category.${searchField} ILIKE :search`,
+            { search: `%${search}%` },
+          );
+        } else {
+          qb.where(
+            '(category.name ILIKE :search OR category.description ILIKE :search)',
+            { search: `%${search}%` },
+          );
+        }
+      }
+
+      const sortField = sort ?? 'id';
+      const sortOrder = order ?? 'ASC';
+
+      qb.orderBy(`category.${sortField}`, sortOrder);
+
+      return await paginate(qb, { page, limit });
+    } catch (error) {
+      return null;
     }
-    const orderField = sortBy && allowedSortFields.includes(sortBy) ? sortBy : 'id';
-    const orderDirection: 'ASC' | 'DESC' =
-      sortOrder === 'DESC' ? 'DESC' : 'ASC';
-
-    queryBuilder.orderBy(`category.${orderField}`, orderDirection);
-
-    return paginate<Category>(queryBuilder, {
-      page: options.page,
-      limit: options.limit,
-    });
   }
+
 
   async findOne(id: string): Promise<Category | null> {
     try {

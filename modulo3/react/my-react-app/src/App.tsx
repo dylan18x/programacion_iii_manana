@@ -1,9 +1,9 @@
-import BeeTimer from "./BSS_REF/BeeTimer"
+import SimpleForm from "./happy-tails_mp/components/SimpleForm_mp"
 
 function App() {
   return (
     <>
-      <BeeTimer/>
+      <SimpleForm/>
     </>
   )
 }

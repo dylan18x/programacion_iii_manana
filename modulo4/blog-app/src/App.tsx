@@ -1,10 +1,11 @@
 import { useRoutes } from "react-router-dom";
-import { appRoutes } from "./routes";
-import type { JSX } from "react";
+import { appRoutes } from "./routes/app.routes";
+import { AuthProvider } from "./context/AuthContext";
+import type {JSX} from "react";
 
 export default function App(): JSX.Element {
-  const routes = useRoutes(appRoutes);
-  return <>{routes}</>;
+  const element = useRoutes(appRoutes);
+  return <AuthProvider>{element}</AuthProvider>;
 }
 
 /*import type { JSX } from "react";

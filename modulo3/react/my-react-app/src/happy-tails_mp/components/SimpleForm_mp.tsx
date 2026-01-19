@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function SimpleForm(){
     const [name,setName] = useState('')
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e:any) =>{
         e.preventDefault();
         alert(`Hola, ${name}`)
     };

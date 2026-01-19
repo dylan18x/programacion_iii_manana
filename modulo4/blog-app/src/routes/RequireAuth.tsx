@@ -11,7 +11,7 @@ export default function RequireAuth(
   if (!user || !token) {
     return (
       <Navigate
-        to="/auth/login"
+        to="/login"
         replace
         state={{ from: location.pathname }}
       />

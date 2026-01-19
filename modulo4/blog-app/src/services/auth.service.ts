@@ -15,7 +15,6 @@ export async function loginApi(payload: {
   password: string;
 }): Promise<string> {
   const { data } = await api.post<SuccessResponseDto<AuthTokenData>>("/auth/login", payload);
-  
   return data.data.access_token;
 }
 
